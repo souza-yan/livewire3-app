@@ -5,7 +5,8 @@
 
     <input type="text" wire:model.live.debounce.300ms="search" placeholder="Buscar...">
 
-    <a href="{{ route('produtos.create') }}">Novo</a>
+    <button wire:click='OpenCreate'>Novo</button>
+        <livewire:produtos.create />
 
     <table>
         <thead>

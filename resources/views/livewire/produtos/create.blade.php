@@ -1,4 +1,7 @@
 <div>
+    @if(
+        $modal
+    )
     <h1>Novo Produto</h1>
 
     <form wire:submit="save">
@@ -22,4 +25,5 @@
         <button type="submit">Salvar</button>
         <a href="{{ route('produtos.index') }}">Cancelar</a>
     </form>
+    @endif
 </div>

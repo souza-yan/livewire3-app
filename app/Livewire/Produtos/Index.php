@@ -3,6 +3,7 @@
 namespace App\Livewire\Produtos;
 
 use App\Models\Produto;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Url;
@@ -19,11 +20,18 @@ class Index extends Component
 
     public $perPage = 100;
 
+
+    #[On('produto-criado')]
     public function updatingSearch()
     {
         $this->resetPage();
     }
 
+    public function OpenCreate(){
+
+        $this->dispatch('modal-create');
+
+    }
 
     public function delete($id)
     {

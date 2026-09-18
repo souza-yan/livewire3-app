@@ -5,6 +5,7 @@ namespace App\Livewire\Produtos;
 use App\Models\Produto;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\On;
 
 class Create extends Component
 {
@@ -17,6 +18,8 @@ class Create extends Component
     #[Rule('required|numeric|min:0')]
     public $preco = '';
 
+    public $modal = false;
+
     public function save()
     {
         $this->validate();
@@ -27,9 +30,20 @@ class Create extends Component
             'preco' => $this->preco,
         ]);
 
+
         session()->flash('mensagem', 'Produto criado com sucesso!');
 
-        return $this->redirect('/home');
+    }
+
+    public function CloseModal()
+    {
+        $this->modal = false;
+    }
+
+    #[On('modal-create')]
+    public function OpenModal()
+    {
+        $this->modal = true;
     }
 
     public function render()
