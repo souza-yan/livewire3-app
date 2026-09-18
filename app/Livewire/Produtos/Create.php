@@ -3,9 +3,9 @@
 namespace App\Livewire\Produtos;
 
 use App\Models\Produto;
-use Livewire\Component;
-use Livewire\Attributes\Rule;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Rule;
+use Livewire\Component;
 
 class Create extends Component
 {
@@ -29,7 +29,6 @@ class Create extends Component
             'descricao' => $this->descricao,
             'preco' => $this->preco,
         ]);
-
 
         session()->flash('mensagem', 'Produto criado com sucesso!');
 

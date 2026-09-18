@@ -4,9 +4,9 @@ namespace App\Livewire\Produtos;
 
 use App\Models\Produto;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Livewire\Attributes\Url;
 
 class Index extends Component
 {
@@ -16,10 +16,10 @@ class Index extends Component
     public $search = '';
 
     public $sortField = 'id';
+
     public $sortDirection = 'asc';
 
     public $perPage = 100;
-
 
     #[On('produto-criado')]
     public function updatingSearch()
@@ -27,7 +27,8 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function OpenCreate(){
+    public function OpenCreate()
+    {
 
         $this->dispatch('modal-create');
 
@@ -44,7 +45,7 @@ class Index extends Component
     {
         $itens = Produto::query()
             ->when($this->search, function ($query) {
-                $query->where('nome', 'like', '%' . $this->search . '%');
+                $query->where('nome', 'like', '%'.$this->search.'%');
             })
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->perPage);

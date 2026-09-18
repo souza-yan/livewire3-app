@@ -3,8 +3,8 @@
 namespace App\Livewire\Produtos;
 
 use App\Models\Produto;
-use Livewire\Component;
 use Livewire\Attributes\Rule;
+use Livewire\Component;
 
 class Edit extends Component
 {
